@@ -1,20 +1,26 @@
 from PIL import ImageGrab
 
+'''
+@function screen_shot
+@description Função que realiza o print da tela
+@params {list, tuple, None} screenInfo 
+@return Image
+'''
 def screen_shot(screenInfo = None):
     try:
         if (type(screenInfo) == list or type(screenInfo) == tuple):
-            BBOX = (
+            bbox = (
                 screenInfo[0],
                 screenInfo[1],
                 screenInfo[2] + screenInfo[0],
                 screenInfo[3] + screenInfo[1] 
             )
-            IMG = ImageGrab.grab(BBOX)
+            img = ImageGrab.grab(bbox)
         else:
-            IMG = ImageGrab.grab()
+            img = ImageGrab.grab()
             
     except:     
-        IMG = ImageGrab.grab()
+        img = ImageGrab.grab()
     
     finally:
-        return IMG 
+        return img 
