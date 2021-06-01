@@ -1,4 +1,4 @@
-from screenShot import screen_shot
+from .screenShot import screen_shot
 import unittest
 
 class TestScreenShot(unittest.TestCase):
@@ -34,18 +34,14 @@ class TestScreenShot(unittest.TestCase):
         self.assertEqual(width, equalW)
         self.assertEqual(height, equalH)
     
-    # deveria retornar um imagem da tela mesmo inteira 
-    # mesmo sem enviar os parametros certos
+    # deveria retornar um erro
     def test_screen_shot_except(self):
         left = 60
         top = 50
-        equal = "<class 'PIL.Image.Image'>"
-        img = screen_shot((left,top))
-        typeImg = f'{type(img)}'
-        self.assertEqual(typeImg, equal)
-        img = screen_shot('test')
-        typeImg = f'{type(img)}'
-        self.assertEqual(typeImg, equal)
+        with self.assertRaises(TypeError):
+            screen_shot((left,top))
+        with self.assertRaises(TypeError):
+            screen_shot('test')
 
 if __name__ == '__main__':
     unittest.main()

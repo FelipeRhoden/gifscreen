@@ -15,12 +15,12 @@ def screen_shot(screenInfo = None):
                 screenInfo[2] + screenInfo[0],
                 screenInfo[3] + screenInfo[1] 
             )
+
             img = ImageGrab.grab(bbox)
+
         else:
-            img = ImageGrab.grab()
-            
+            img = ImageGrab.grab(screenInfo)
+        
+        return img
     except:     
-        img = ImageGrab.grab()
-    
-    finally:
-        return img 
+        raise TypeError("Erro ao capturar tela")
