@@ -1,14 +1,14 @@
 import unittest, os.path, os
 from PIL import ImageGrab
-from .saveImg import saveImg
+from .saveImg import save_img
 
-class TestSaveImg(unittest.TestCase):
+class Testsave_img(unittest.TestCase):
 
     # Deveria Salvar uma imagem
     def test_save_img_save(self):
         img = ImageGrab.grab((0,0,500,500))
         path = 'img.png'
-        saveImg(img, path)
+        save_img(img, path)
         exist = os.path.exists(path)
         if (exist) : 
             os.remove(path) 
@@ -20,7 +20,7 @@ class TestSaveImg(unittest.TestCase):
         os.mkdir(dirname)
         img = ImageGrab.grab((0,0,500,500))
         path = 'img/img.png'
-        saveImg(img, path)
+        save_img(img, path)
         exist = os.path.exists(path)
         if (exist) : 
             os.remove(path) 
@@ -33,9 +33,9 @@ class TestSaveImg(unittest.TestCase):
         path = 'img/img.png'
         path2 = 'img.ssd'
         with self.assertRaises(TypeError):
-            saveImg(img, path)
+            save_img(img, path)
         with self.assertRaises(TypeError):
-            saveImg(img, path2)
+            save_img(img, path2)
 
 
 
