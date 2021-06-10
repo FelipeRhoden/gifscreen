@@ -1,7 +1,7 @@
 from .screenShot import screen_shot
 import unittest
 
-class TestScreenShot(unittest.TestCase):
+class TestScreen_Shot(unittest.TestCase):
 
 
     # Deveria retornar uma item do tipo Imagem

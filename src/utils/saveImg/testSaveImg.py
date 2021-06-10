@@ -14,7 +14,7 @@ class Testsave_img(unittest.TestCase):
             os.remove(path) 
         self.assertTrue(exist)
     
-    # Deveria Salvar um subdiretorio
+    # Deveria Salvar em um subdiretorio
     def test_save_img_subdir(self):
         dirname = 'img'
         os.mkdir(dirname)
