@@ -1,4 +1,4 @@
-<img aling="center" src="logo.png" alt="GifScreen">
+![GifScreen](logo.png =250px)
 
 # gifscreen
 
