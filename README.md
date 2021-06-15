@@ -1,6 +1,4 @@
-<div style="text-align:center">
-  <img src="logo.png" alt="GifScreen">
-</div>
+<img aling="center" src="logo.png" alt="GifScreen">
 
 # gifscreen
 
