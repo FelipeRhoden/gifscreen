@@ -1,4 +1,4 @@
-![GifScreen](logo.png =250px)
+![GifScreen](logo.png =250x)
 
 # gifscreen
 
