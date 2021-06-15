@@ -1,3 +1,5 @@
+![GifScreen](logo.png)
+
 # gifscreen
 
 Gravador de Gif CLI desenvolvido com Python
