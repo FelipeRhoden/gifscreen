@@ -1,17 +1,23 @@
 import asyncio
 
-async def repeat_engine(iteraction, rps = 26, sec = 7):
+async def repeat_engine(iteraction, param = None, rps = 1, sec = 1):
     tasks = []
-    const_time = 1/rps
+    const_time = 1//rps
     const_iteraction = sec*const_time
     process_time = 0
-    results = []
+    results = {
+      "inLoop": True,
+      "list" : [],
+    }
 
     async def taskProcess(iteraction, process_time):
-        asyncio.sleep(process_time)
-        results.append(iteraction())
+        await asyncio.sleep(process_time)
+        if (type(param) == type([])):
+          results["list"].append(iteraction(*param))
+        else:
+          results["list"].append(iteraction())
 
-    for iteraction in range(const_iteraction):
+    for i in range(const_iteraction):
         tasks.append(
             asyncio.create_task(
                 taskProcess(iteraction, process_time)
