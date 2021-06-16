@@ -25,12 +25,16 @@ async def repeat_engine(iteraction, param = None, rps = 1, sec = 1):
         )
         process_time += const_time
 
-    loopTask = asyncio.gather(*tasks)
+    loopTask = asyncio.shield(asyncio.gather(*tasks))
 
     async def engine():
       results['inLoop'] = True
-      await asyncio.gather(loopTask)
-      results['inLoop'] = False
+      try:
+        await loopTask
+      except:
+        None
+      finally:
+        results['inLoop'] = False
 
     def cancel(): 
       loopTask.cancel()

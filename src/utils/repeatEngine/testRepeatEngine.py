@@ -95,7 +95,7 @@ class TestRepeat_engine(unittest.TestCase):
         result = loop.run_until_complete(repeat_engine(soma,[2], 2, 2))
         async def inLoop():
             await asyncio.sleep(0.9)
-            self.assertTrue(result['cancel'])
+            result['cancel']()
             
         async def test():
             tasks = []
@@ -103,12 +103,16 @@ class TestRepeat_engine(unittest.TestCase):
             tasks.append(asyncio.create_task(inLoop()))
             await asyncio.gather(*tasks)
             
-        loop.run_until_complete(test())
-        resultList = result['list']
-        listLength = len(resultList)
-        self.assertEqual(listLength, 2)
-        resultSoma = resultList[0] + resultList[1]
-        self.assertEqual(resultSoma, 6)
+        try:
+          loop.run_until_complete(test())
+        except:
+          None
+        finally:
+          resultList = result['list']
+          listLength = len(resultList)
+          self.assertEqual(listLength, 2)
+          resultSoma = resultList[0] + resultList[1]
+          self.assertEqual(resultSoma, 6)
 
 
 if __name__ == '__main__':
