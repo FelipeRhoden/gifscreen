@@ -1,8 +1,8 @@
 import unittest
 import asyncio
 import time
-from .utils.repeatEngine.repeatEngine import repeat_engine
-from .utils.screenShot.screenShot import screen_shot
+from utils.repeatEngine.repeatEngine import repeat_engine
+from utils.screenShot.screenShot import screen_shot
 
 class TestIntegretion(unittest.TestCase):
 
